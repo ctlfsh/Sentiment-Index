@@ -1,0 +1,39 @@
+## Sentiment Index
+
+A lightweight Python toolkit for collecting and analyzing text from U.S. federal government websites.  
+It scrapes each site's homepage, extracts visible text, and uses a local LLM to detect partisan or accusatory language.
+
+
+### Workflow
+
+```mermaid
+flowchart TD
+    A[urls.txt - 
+    List of .gov sites] --> B[batch_homepage_scraper.py Fetch + Clean HTML]
+    B --> C[homepages.jsonl 
+    Raw text from each site]
+    C --> D[sentiment_analysis.py
+    Send to local LLM]
+    D --> E[homepages_with_sentiment_llm.jsonl
+    Classified output]
+    E --> F[Results & Insights
+    Partisan vs Neutral Labels]
+
+    subgraph Local LLM
+        D1[openai/gpt-oss-20b model]
+    end
+
+    D --> D1
+    D1 --> D
+
+    classDef file fill:#e8f5e9,stroke:#2e7d32,stroke-width:1px,color:#1b5e20;
+    classDef process fill:#e3f2fd,stroke:#1565c0,stroke-width:1px,color:#0d47a1;
+    classDef result fill:#fff3e0,stroke:#ef6c00,stroke-width:1px,color:#e65100;
+
+    class A file;
+    class B process;
+    class C file;
+    class D process;
+    class D1 process;
+    class E file;
+    class F result;
