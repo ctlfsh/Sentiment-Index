@@ -1,6 +1,6 @@
 ## Sentiment Index
 
-A lightweight Python toolkit for collecting and analyzing text from U.S. federal government websites.  
+A tool for collecting and analyzing text from U.S. federal government websites.  
 It scrapes each site's homepage, extracts visible text, and uses a local LLM to detect partisan or accusatory language.
 
 
@@ -39,13 +39,14 @@ flowchart TD
     class F result;
 ```
 
-### Working and what needs work
+### What's working
 * Scrape .gov sites from a manual list
 * send data to an LLM and get back data
 * plot output in a jupyter notebook
 
 ### What needs work
 * detect when .gov list is updated
+* periodic job scraping data
 * script to create url list from .gov csv
 * test DMR or other method to run multiple instances of an LLM
 * hand verify one instance of partisan/neutral for regression tests
@@ -53,3 +54,4 @@ flowchart TD
 * regression testing (pytest?) to test LLMs against each other
 * sentimentor repeatability, if i run it 10x do i get the same results? deterministic?
 * check sentimentor without truncate options
+* if i have a lot of datasets, is it worth sagemaker/mturk ?
