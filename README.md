@@ -37,3 +37,19 @@ flowchart TD
     class D1 process;
     class E file;
     class F result;
+```
+
+### Working and what needs work
+* Scrape .gov sites from a manual list
+* send data to an LLM and get back data
+* plot output in a jupyter notebook
+
+### What needs work
+* detect when .gov list is updated
+* script to create url list from .gov csv
+* test DMR or other method to run multiple instances of an LLM
+* hand verify one instance of partisan/neutral for regression tests
+* check "unknown" with http status code 200 to verify site doesnt work/return 
+* regression testing (pytest?) to test LLMs against each other
+* sentimentor repeatability, if i run it 10x do i get the same results? deterministic?
+* check sentimentor without truncate options
