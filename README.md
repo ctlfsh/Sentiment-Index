@@ -55,3 +55,5 @@ flowchart TD
 * sentimentor repeatability, if i run it 10x do i get the same results? deterministic?
 * check sentimentor without truncate options
 * if i have a lot of datasets, is it worth sagemaker/mturk ?
+* add timestamps / total time to collect and sentiment runs
+* processor and code logging, grafana
